@@ -53,6 +53,15 @@ try:
     print(rows)
     print("Data Fetched")
 
+    # INSERT
+    query = """ INSERT INTO customers (name, email)
+                VALUES ('Tectigon', 'tectigon@email.com'); """
+
+
+    cur.execute(query)
+
+    conn.commit()
+
 except Exception as e:
     print(f"Error: {e}")
 finally:
