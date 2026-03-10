@@ -57,14 +57,32 @@ try:
     query = """ INSERT INTO customers (name, email)
                 VALUES ('Tectigon', 'tectigon@email.com'); """
 
-
     cur.execute(query)
-
     conn.commit()
+
+    # SELECT
+    cur.execute("SELECT * FROM customers;")
+
+    data1 = cur.fetchone()
+    print(data1)
+
+    data2 = cur.fetchone()
+    print(data2)
+
+    data3 = cur.fetchmany(3)
+
+    for row in data3:
+        print(row)
+
+    data4 = cur.fetchmany(4)
+
+    for row in data4:
+        print(row)
 
 except Exception as e:
     print(f"Error: {e}")
 finally:
+    cur.close()
     conn.close()
     
     print("Conn closed")
